@@ -1,0 +1,64 @@
+\documentclass{article}
+\usepackage{pgfplots}
+\usepackage[a4paper, margin=1in]{geometry} % Adjust the margins here
+\begin{document}
+
+\title{Programação Concorrente e Distribuída}
+\author{        }
+\date{\today}
+
+\maketitle
+
+
+\section{Especificação} \label{sec:especificacao}
+\begin{itemize}
+    \item Modelo CPU: ${MODEL}
+    \item Modelo GPU: ${GPU_MODEL}
+    \item Total de nucleos: ${CPU}
+    \item Total de nucleos fisicos: ${CPU_PHYSICAL}
+    \item Mémoria RAM total: ${MEMORY}
+\end{itemize}
+
+
+\section{Tempo de execução: Table} \label{sec:tempo_de_execucao}
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|c|c|}
+        
+    \hline
+    \textbf{Número de processos} & \textbf{Tempo de execução (s)} \\
+    \hline
+    ${TABLE}
+    \hline
+    \end{tabular}
+    \caption{Ultimo resultado obtido com CUDA}
+    \end{table}
+
+\section{Tempo de execução: Plot} \label{sec:tempo_de_execucao}
+\begin{center} % Centering the plot
+    \begin{tikzpicture}
+        \begin{axis}[
+            width=15cm, height=8cm, % Increase width
+            xlabel={Tempo de execução (s)},
+            ylabel={Número de processos},
+            xtick=data,
+            ytick=data, 
+            grid=major,
+            legend pos=north west
+        ]
+            % Line graph
+            \addplot[color=blue, mark=none] coordinates {
+                ${PLOT}
+            };
+            \addlegendentry{Line}
+
+            % Point graph
+            \addplot[color=red, only marks, mark=*] coordinates {
+                  ${PLOT}
+            };
+            \addlegendentry{Points}
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+        
+        \end{document}
